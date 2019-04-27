@@ -39,6 +39,7 @@ RUN ln -sf /usr/share/zoneinfo/${zone} /etc/localtime \
     varwidth environ trimspaces \
     # for Japanese in XeTeX
     realscripts metalogo xltxtra zxjatype xecjk zxjafont \
+  && tlmgr path add \
   && chown -R root:staff /usr/local/lib/R/site-library \
   && chown -R root:staff /opt/TinyTeX \
   && chmod -R g+w /opt/TinyTeX \
