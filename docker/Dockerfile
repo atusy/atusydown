@@ -14,6 +14,11 @@ RUN ln -sf /usr/share/zoneinfo/${zone} /etc/localtime \
     phantomjs \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/* \
+  # Install NotoSerifCJKjp
+  && wget -q https://noto-website-2.storage.googleapis.com/pkgs/NotoSerifCJKjp-hinted.zip \
+  && unzip NotoSerifCJKjp-hinted.zip -d /usr/share/fonts/opentype/noto \
+  && rm NotoSerifCJKjp-hinted.zip \
+  && chmod 644 /usr/share/fonts/opentype/noto/* \
   # Install pandoc
   && rm -rf \
       /usr/lib/rstudio-server/bin/pandoc \
