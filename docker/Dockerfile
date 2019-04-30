@@ -61,7 +61,7 @@ RUN ln -sf /usr/share/zoneinfo/${zone} /etc/localtime \
     # for Japanese in XeLaTeX
     realscripts metalogo xltxtra zxjatype xecjk zxjafont \
     # for Pandoc
-    biblatex bidi csquotes footnotehyper makecmds microtype polyglossia setspace unicode-math xurl
+    biblatex bidi csquotes footnotehyper makecmds microtype polyglossia setspace unicode-math xurl \
   && tlmgr path add \
   && chown -R root:staff /usr/local/lib/R/site-library \
   && chown -R root:staff /opt/TinyTeX \
