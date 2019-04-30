@@ -7,18 +7,33 @@ RUN ln -sf /usr/share/zoneinfo/${zone} /etc/localtime \
   # apt
   && apt-get update \
   && apt-get install -y --no-install-recommends \
-    # fonts
+    # IPA fonts
     fonts-ipaexfont-gothic fonts-ipaexfont-mincho \
-    fonts-noto-cjk fonts-noto-hinted fonts-noto-mono fonts-noto-unhinted \
     # for webshot
     phantomjs \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/* \
-  # Install NotoSerifCJKjp
-  && wget -q https://noto-website-2.storage.googleapis.com/pkgs/NotoSerifCJKjp-hinted.zip \
-  && unzip NotoSerifCJKjp-hinted.zip -d /usr/share/fonts/opentype/noto \
-  && rm NotoSerifCJKjp-hinted.zip \
+  # Noto fonts
+  && wget -q \
+    https://noto-website-2.storage.googleapis.com/pkgs/NotoSans-hinted.zip \
+    https://noto-website-2.storage.googleapis.com/pkgs/NotoSerif-hinted.zip \
+    https://noto-website-2.storage.googleapis.com/pkgs/NotoMono-hinted.zip \
+    https://noto-website-2.storage.googleapis.com/pkgs/NotoSansCJKjp-hinted.zip \
+    https://noto-website-2.storage.googleapis.com/pkgs/NotoSerifCJKjp-hinted.zip \
+  && mkdir -p /usr/share/fonts/truetype /usr/share/fonts/opentype \
+  && unzip -n NotoSans-hinted.zip       -d /usr/share/fonts/truetype/noto \
+  && unzip -n NotoSerif-hinted.zip      -d /usr/share/fonts/truetype/noto \
+  && unzip -n NotoMono-hinted.zip       -d /usr/share/fonts/truetype/noto \
+  && unzip -n NotoSansCJKjp-hinted.zip  -d /usr/share/fonts/opentype/noto \
+  && unzip -n NotoSerifCJKjp-hinted.zip -d /usr/share/fonts/opentype/noto \
+  && rm \
+    NotoSans-hinted.zip \
+    NotoSerif-hinted.zip \
+    NotoMono-hinted.zip \
+    NotoSansCJKjp-hinted.zip \
+    NotoSerifCJKjp-hinted.zip \
   && chmod 644 /usr/share/fonts/opentype/noto/* \
+  && chmod 644 /usr/share/fonts/truetype/noto/* \
   # Install pandoc
   && rm -rf \
       /usr/lib/rstudio-server/bin/pandoc \
@@ -44,6 +59,8 @@ RUN ln -sf /usr/share/zoneinfo/${zone} /etc/localtime \
     varwidth environ trimspaces \
     # for Japanese in XeTeX
     realscripts metalogo xltxtra zxjatype xecjk zxjafont \
+    # for Pandoc
+    setspace \
   && tlmgr path add \
   && chown -R root:staff /usr/local/lib/R/site-library \
   && chown -R root:staff /opt/TinyTeX \
