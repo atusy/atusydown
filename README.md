@@ -1,6 +1,6 @@
-Let's build a rich R Markdown enrionment.
+A rich environment fo R Markdown.
 
-This repository is provides `atusydown` as an [R package](#r-package-atusyatusydown) and as a [Docker](#docker-atusyatusydown) container.
+This repository provides `atusydown` as an [R package](#r-package-atusyatusydown) and as a [Docker](#docker-atusyatusydown) container.
 
 Try by editing a following `docker-compose.yml` and run `docker-compose up -d`
 
