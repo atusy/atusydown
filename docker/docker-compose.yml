@@ -1,12 +1,13 @@
 version: "3"
 services:
   r:
-    # image: atusy/atusyverse:dev
+    # image: atusy/atusydown:dev
     build:
       context: "."
       dockerfile: Dockerfile
     ports:
-      - "8787:8787"
+      # - "8787:8787"
+      - "8787"
     environment:
       - ROOT=TRUE
       - USER=rstudio
