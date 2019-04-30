@@ -1,6 +1,6 @@
 Let's build a rich R Markdown enrionment.
 
-This repository is provides `atusydown` as an R package and as a Docker container.
+This repository is provides `atusydown` as an [R package](#r-package-atusyatusydown) and as a [Docker](#docker-atusyatusydown) container.
 
 # R Package `atusy/atusydown`
 
@@ -28,12 +28,8 @@ source("https://raw.githubusercontent.com/r-lib/remotes/master/install-github.R"
 
 # Docker `atusy/atusydown`
 
-`docker-compose.yml` is available.
-Clone the source and launch by
-
-```bash
-sudo docker-compose up -d
-```
+`docker-compose.yml` is available in `/docker` dierctory.
+Clone and edit the `docker-compose.yml` and launch by `sudo docker-compose up -d`
 
 Dockerfile adds to [rocker/verse](//hub.docker.com/r/rocker/verse/) more output formats and features on Rmd with pandoc 2.7.2.
 
