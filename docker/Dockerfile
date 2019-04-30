@@ -32,9 +32,10 @@ RUN ln -sf /usr/share/zoneinfo/${zone} /etc/localtime \
     NotoMono-hinted.zip \
     NotoSansCJKjp-hinted.zip \
     NotoSerifCJKjp-hinted.zip \
-  && chmod 644 /usr/share/fonts/opentype/noto/* \
-  && chmod 644 /usr/share/fonts/truetype/noto/* \
-  # Install pandoc
+  && chmod 644 \
+    /usr/share/fonts/opentype/noto/* \
+    /usr/share/fonts/truetype/noto/* \
+  # Pandoc
   && rm -rf \
       /usr/lib/rstudio-server/bin/pandoc \
       /usr/local/bin/pandoc \
@@ -43,7 +44,7 @@ RUN ln -sf /usr/share/zoneinfo/${zone} /etc/localtime \
     https://github.com/jgm/pandoc/releases/download/${pandoc}/pandoc-${pandoc}-1-amd64.deb && \
     dpkg -i pandoc-${pandoc}-1-amd64.deb && \
     rm pandoc-${pandoc}-1-amd64.deb \
-  # Install and configure R packages
+  # R packages: install and configure 
   && r -e "options(Ncpus = max(1L, parallel::detectCores())); remotes::install_github('atusy/atusydown', upgrade = 'always', dependencies = TRUE)" \
   # Setup webshot
   && echo "QT_QPA_PLATFORM=offscreen" >> /usr/local/lib/R/etc/Renviron \
@@ -57,14 +58,12 @@ RUN ln -sf /usr/share/zoneinfo/${zone} /etc/localtime \
     multirow wrapfig float colortbl tabu threeparttable threeparttablex ulem makecell xcolor \
     # for kableExtra (additional)
     varwidth environ trimspaces \
-    # for Japanese in XeTeX
+    # for Japanese in XeLaTeX
     realscripts metalogo xltxtra zxjatype xecjk zxjafont \
     # for Pandoc
-    setspace \
+    biblatex bidi csquotes footnotehyper makecmds microtype polyglossia setspace unicode-math xurl
   && tlmgr path add \
   && chown -R root:staff /usr/local/lib/R/site-library \
   && chown -R root:staff /opt/TinyTeX \
   && chmod -R g+w /opt/TinyTeX \
   && chmod -R g+wx /opt/TinyTeX/bin
-
-CMD ["/init"]
