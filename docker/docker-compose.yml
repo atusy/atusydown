@@ -6,7 +6,7 @@ services:
       context: "."
       dockerfile: Dockerfile
     ports:
-      - "8787"
+      - "8787:8787"
     environment:
       - ROOT=TRUE
       - USER=rstudio
