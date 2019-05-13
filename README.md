@@ -64,7 +64,7 @@ Dockerfile adds to [rocker/verse](//hub.docker.com/r/rocker/verse/) more output 
     - Noto Sans/Serif CJK JP
 - Adds tlmgr packages suggested by
     - kableExtra 
-        - https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=2ahUKEwjtkoewrPfhAhWnUN4KHcRFD-YQFjAAegQIBhAC&url=https%3A%2F%2Fhaozhu233.github.io%2FkableExtra%2Fawesome_table_in_pdf.pdf&usg=AOvVaw1KUfrGaz2bDPo-9bmnbFlw
+        - https://haozhu233.github.io/kableExtra/awesome_table_in_pdf.pdf
     - Japanese output in XeLaTeX
         - xltxtra zxjatype xecjk zxjafont (+ realscripts metalogo)
     - Pandoc
