@@ -26,6 +26,7 @@ A meta package which **suggests** to install following packages.
 - `flexdashboard`
 - `kableExtra`
 - `knitr`
+- `officedown`
 - `pagedown`
 - `pkgdown`
 - `revealjs`
@@ -45,9 +46,10 @@ source("https://raw.githubusercontent.com/r-lib/remotes/master/install-github.R"
 Dockerfile adds to [rocker/verse](//hub.docker.com/r/rocker/verse/) more output formats and features on Rmd with pandoc 2.7.2.
 
 - Adds R packages for Rmd in addition to `bookdown`, `rticles`, and `rmdshower` to extend
-    - Outputs formats
+    - Outputs formats from
         - `blogdown` with latest Hugo
         - `flexdashboard`
+        - `officedown`
         - `pagedown`
         - `pkgdown`
         - `revealjs`
