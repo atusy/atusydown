@@ -1,6 +1,6 @@
 Package: atusydown
 Type: Package
-Title: A collection of R Markdown related packages
+Title: Extend R Markdown by additional functions and a collection of suggested packages
 Version: 0.1.0
 Author: Atusy
 Maintainer: Atusy <atusy7+atusydown@gmail.com>
@@ -9,13 +9,15 @@ License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.1.1
+Imports:
+    knitr,
+    rmarkdown
 Suggests:
     bookdown,
     blogdown,
     extrafont,
     flexdashboard,
     kableExtra,
-    knitr,
     officedown,
     pagedown,
     pkgdown,
@@ -27,3 +29,4 @@ Suggests:
 Remotes:
     davidgohel/officedown,
     rstudio/pagedown
+VignetteBuilder: knitr

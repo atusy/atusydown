@@ -1,4 +1,4 @@
-A rich environment fo R Markdown.
+# Extend R Markdown by additional functions and a collection of suggested packages
 
 This repository provides `atusydown` as an [R package](#r-package-atusyatusydown) and as a [Docker](#docker-atusyatusydown) container.
 
@@ -16,21 +16,20 @@ services:
       - PASSWORD=password
 ```
 
-# R Package `atusy/atusydown`
+## R Package `atusy/atusydown`
 
-A meta package which **suggests** to install following packages.
+The `atusydown` as an R package provides additional functions and 
+**suggests** following packages to extend R Markdown.
 
 - `bookdown`
 - `blogdown`
 - `extrafont`
 - `flexdashboard`
 - `kableExtra`
-- `knitr`
 - `officedown`
 - `pagedown`
 - `pkgdown`
 - `revealjs`
-- `rmarkdown`
 - `svglite`
 - `tinytex`
 - `webshot`
@@ -41,7 +40,7 @@ Install by copy and paste a following command.
 source("https://raw.githubusercontent.com/r-lib/remotes/master/install-github.R")$value("atusy/atusydown", dependencies = TRUE)
 ```
 
-# Docker `atusy/atusydown`
+## Docker `atusy/atusydown`
 
 Dockerfile adds to [rocker/verse](//hub.docker.com/r/rocker/verse/) more output formats and features on Rmd with pandoc 2.7.2.
 
