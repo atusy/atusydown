@@ -77,7 +77,7 @@ you can see chunk options of a current chunk as a structure of a list.
 
 ````{.text}
 ```{`r "options"`}
-code("options")
+`r code("options")`
 ```
 ````
 
