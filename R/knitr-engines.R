@@ -19,7 +19,7 @@ eng_text <- function(options) {
   out[out == ""] <- "\n\n"
   engine_output(
     options,
-    NULL,
+    options$code,
     paste(out, collapse = "")
   )
 }
@@ -27,12 +27,11 @@ eng_text <- function(options) {
 #' @rdname knit-engines
 #' @importFrom glue glue
 eng_glue <- function(options) {
-  options$results <- 'asis'
   options$echo <- isTRUE(options$opts.include)
   if (is.null(options$glue.args$.sep)) options$glue.args$.sep <- "\n"
   engine_output(
     options,
-    NULL,
+    options$code,
     do.call(
       glue,
       c(
@@ -60,7 +59,7 @@ eng_opts <- function(options) {
   }
   engine_output(
     options,
-    NULL,
+    options$code,
     capture.output(str(out[sort(names(out))]))
   )
 }
@@ -68,7 +67,7 @@ eng_opts <- function(options) {
 #' Returns chunk options of a source chunk
 #' @param options Chunk options
 opts_src <- function(options) {
-  opts <- options[
+  options[
     names(eval(parse(
       text = paste("alist(", options$params.src, ")", collapse = "")
     )))
