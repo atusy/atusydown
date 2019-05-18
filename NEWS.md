@@ -18,6 +18,7 @@
 ### Added
 
 - `printr`
+- `gt`
 
 ### Moved to imported packages
 

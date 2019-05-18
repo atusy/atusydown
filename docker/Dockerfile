@@ -11,6 +11,8 @@ RUN ln -sf /usr/share/zoneinfo/${zone} /etc/localtime \
     fonts-ipaexfont-gothic fonts-ipaexfont-mincho \
     # for webshot
     phantomjs \
+    # for gt
+    libglu1-mesa-dev \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/* \
   # Noto fonts

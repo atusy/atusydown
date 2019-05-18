@@ -19,6 +19,7 @@ Suggests:
     blogdown,
     extrafont,
     flexdashboard,
+    gt,
     kableExtra,
     officedown,
     pagedown,
@@ -31,5 +32,6 @@ Suggests:
     webshot
 Remotes:
     davidgohel/officedown,
+    rstudio/gt,
     rstudio/pagedown
 VignetteBuilder: knitr
