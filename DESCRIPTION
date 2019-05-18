@@ -13,6 +13,7 @@ Imports:
     glue,
     knitr,
     rmarkdown,
+    rsvg,
     stringr
 Suggests:
     bookdown,
