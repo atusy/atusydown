@@ -1,3 +1,16 @@
+# atusydown 0.1.1.9000
+
+## New features
+
+- Knit engines
+    - `footnote` and `fn` generate footnotes whose labels are same as the chunk labels.
+
+## Fix
+
+- `eng_glue()` coerces results "asis".
+- `eng_opts` internally modifies options after copying specified options.
+
+
 # atusydown 0.1.1
 
 ## New features
