@@ -38,15 +38,16 @@ name <- "Atusy"
 ```
 
 And then use `glue` engine like below.
+Note that source chunk never echoes.
 
 ````{.text}
-```{`r "glue"`}
+```{glue`r "}"`
 `r code("glue-brace")`
 ```
 ````
 
 ```{glue glue-brace}
-**My name is {name}.**
+> **My name is {name}.**
 This output is powered by glue package!
 ```
 
@@ -59,41 +60,69 @@ A following example
   instead of default braces (`{` and `}`)
 
 ````{.text}
-```{`r "glue"`, glue.args = list(.open = "%", .close = "%")}
+```{glue, glue.args = list(.open = "%", .close = "%")`r "}"`
 `r code("glue-percent")`
 ```
 ````
 
 ```{glue glue-percent, glue.args = list(.open = "%", .close = "%")}
-**My name is %name%.**
+> **My name is %name%.**
 This output is powered by glue package!
 ```
 
-# `options`
+### `opts`
 
-The `options` engine is useful for debugging.
-By running a current chunk or by knitting, 
-you can see chunk options of a current chunk as a structure of a list.
+The `opts` engine returns chunk options of a current chunk.
+
+By default, all the available options are returned.
+The output of `opts` can be limited by specifying either `"diff"` or `"src"` to
+a chunk option called `opts.show`.
+
+The output of `opts` is by default sorted by names.
+The sorting can be disabled by specifying `opts.sort = FALSE`.
+
+Note that source chunk never echoes.
+
+#### Show all the chunk options (default)
 
 ````{.text}
-```{`r "options"`}
+```{opts`r "}"`
 `r code("options")`
 ```
 ````
 
-```{options options}
+```{opts options}
 The content of chunk is ignored.
 ```
 
-If you only want to output chunk options different from `knitr::opts_chunk$get()`,
-specify `options.diff = TRUE` as a chunk option.
+#### Show options different from `opts_chunk$get()` by `opts.show = "diff"`
+
+Specifying `ops.show = "diff"` as a chunk option returns 
+chunk options of the source chunk which have different values from
+`knitr::opts_chunk$get()`.
 
 ````{.text}
-```{`r "options"`, foo = "bar", options.diff = TRUE}
+```{opts, foo = "bar", opts.show = "diff"`r "}"`
 
 ```
 ````
 
-```{options, foo = "bar", options.diff = TRUE}
+```{opts, foo = "bar", opts.show = "diff"}
 
 ```
+
+#### Show input options in the chunk by `opts.show = "src"`
+
+Specifying `opts.show = "src"` as a chunk option 
+returns chunk options that are set in the source chunk.
+
+````
+```{opts, opts.show = "src"`r "}"`
+
+```
+````
+
+```{opts, opts.show = "src"}
+
+```
+

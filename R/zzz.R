@@ -2,7 +2,7 @@
 .onLoad <- function(libname, pkgname) {
   knit_engines$set(
     glue = eng_glue,
-    options = eng_options,
+    opts = eng_opts,
     text = eng_text
   )
 }

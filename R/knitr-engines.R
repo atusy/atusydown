@@ -45,17 +45,30 @@ eng_glue <- function(options) {
 
 #' @rdname knit-engines
 #' @importFrom knitr opts_chunk
-eng_options <- function(options) {
+eng_opts <- function(options) {
   options$echo <- FALSE
   out <- options
-  if (isTRUE(options$options.diff)) {
+  if (isTRUE(options$opts.show == "diff")) {
     default <- opts_chunk$get()[names(options)]
     out <- out[!unlist(Map(identical, options, default), use.names = FALSE)]
-    out$options.diff <- NULL
+  }
+  if (isTRUE(options$opts.show == "src")) {
+    out <- opts_src(options)
+  }
+  if (isTRUE(options$opts.sort) | is.null(options$opts.sort)) {
+    out[sort(names(out))]
   }
   engine_output(
     options,
     NULL,
-    capture.output(str(out))
+    capture.output(str(out[sort(names(out))]))
   )
+}
+
+opts_src <- function(options) {
+  options[
+    names(eval(parse(
+      text = paste("alist(", options$params.src, ")", collapse = "")
+    )))
+  ]
 }
