@@ -4,14 +4,14 @@
 \alias{knit-engines}
 \alias{eng_text}
 \alias{eng_glue}
-\alias{eng_options}
+\alias{eng_opts}
 \title{Knit engines}
 \usage{
 eng_text(options)
 
 eng_glue(options)
 
-eng_options(options)
+eng_opts(options)
 }
 \description{
 Additional engines for Rmd chunks

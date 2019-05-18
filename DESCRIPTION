@@ -1,7 +1,7 @@
 Package: atusydown
 Type: Package
 Title: Extend R Markdown by additional functions and a collection of suggested packages
-Version: 0.1.0
+Version: 0.1.1
 Author: Atusy
 Maintainer: Atusy <atusy7+atusydown@gmail.com>
 Description: A collection of R Markdown related packages (and personal addons in the future).
@@ -12,7 +12,8 @@ RoxygenNote: 6.1.1
 Imports:
     glue,
     knitr,
-    rmarkdown
+    rmarkdown,
+    stringr
 Suggests:
     bookdown,
     blogdown,

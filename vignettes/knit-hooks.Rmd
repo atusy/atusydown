@@ -1,0 +1,82 @@
+---
+title: "Knit hooks"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{knit-hooks}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(atusydown)
+```
+
+## Show source chunk asis
+
+By specifying `opts.include = TRUE`, 
+the source chunk returns the chunk including its option except for `opts.include`.
+Note a limitation that `collapse` is ignored.
+
+### R chunk
+
+````
+```{r, cache = FALSE, opts.include = TRUE`r "}"`
+1
+```
+````
+
+gives
+
+```{r, cache = FALSE, opts.include = TRUE}
+1
+```
+
+Similary labelled chunk gives
+
+```{r label, eval = FALSE, opts.include = TRUE}
+1
+```
+
+And chunk options starting without comma gives
+
+```{r eval = FALSE, opts.include = TRUE}
+1
+```
+
+Note that chunk without codes will not be echoed, 
+which is probably a default behavior of R Markdown.
+
+### Shell chunk
+
+```{sh, opts.include = TRUE}
+echo "hello"
+```
+
+### Chunks using extra engines in atusydown
+
+Currently, engines `glue` and `opts` do not support `opts.include`.
+
+## Measuring elapsed time in a chunk
+
+A chunk option with `time = TRUE` returns elapsed time.
+Specify an integer to `time.digits` to round the time.
+Otherwise the time rounded by `signif()`.
+
+````
+```{r, time = TRUE, time.digits = 2`r "}"`
+`r knitr:::knit_code$get("time")`
+```
+````
+
+```{r time, time = TRUE, time.digits = 2, echo = FALSE}
+Sys.sleep(time = 1e-2)
+```
+
+

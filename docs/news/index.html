@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>A collection of R Markdown related packages — atusydown • atusydown</title>
+<title>Changelog • atusydown</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -30,10 +30,7 @@
 
 
 
-<meta property="og:title" content="A collection of R Markdown related packages — atusydown" />
-
-<meta property="og:description" content="And personal addons in the future..." />
-<meta name="twitter:card" content="summary" />
+<meta property="og:title" content="Changelog" />
 
 
 
@@ -50,7 +47,7 @@
   </head>
 
   <body>
-    <div class="container template-reference-topic">
+    <div class="container template-news">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -112,26 +109,92 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>A collection of R Markdown related packages</h1>
-    
-    <div class="hidden name"><code>atusydown.Rd</code></div>
+      <h1>Changelog <small></small></h1>
+      
     </div>
 
-    <div class="ref-description">
-    
-    <p>And personal addons in the future...</p>
-    
-    </div>
-
-        
-
+    <div id="atusydown-011" class="section level1">
+<h1 class="page-header">
+<a href="#atusydown-011" class="anchor"></a>atusydown 0.1.1</h1>
+<div id="new-features" class="section level2">
+<h2 class="hasAnchor">
+<a href="#new-features" class="anchor"></a>New features</h2>
+<ul>
+<li>Knit engines
+<ul>
+<li>
+<code>glue</code> provides programable writing based on <code><a href="https://www.rdocumentation.org/packages/glue/topics/glue">glue::glue()</a></code>. Specify optional arguments to <code><a href="https://www.rdocumentation.org/packages/glue/topics/glue">glue::glue()</a></code> as a list to <code>glue.args</code> in a chunk option.</li>
+<li>
+<code>opts</code> returns chunk options of current chunk as a structure of a list. To minimize output, specify <code>"diff"</code> or <code>"src"</code> to <code>opts.show</code> in a chunk option. To disable sorting output, specify <code>FALSE</code> to <code>opts.sort</code> in a chunk option.</li>
+</ul>
+</li>
+<li>Knit hooks
+<ul>
+<li>
+<code>opts.include</code> returns source chunk with chunk options.</li>
+<li>
+<code>time = TRUE</code> returns elapsed time of a souce chunk. Specify <code>time.round</code> for rounding, otherwise the time is <code><a href="https://www.rdocumentation.org/packages/base/topics/Round">signif()</a></code>ed.</li>
+</ul>
+</li>
+</ul>
+</div>
+<div id="suggested-packages" class="section level2">
+<h2 class="hasAnchor">
+<a href="#suggested-packages" class="anchor"></a>Suggested packages</h2>
+<div id="added" class="section level3">
+<h3 class="hasAnchor">
+<a href="#added" class="anchor"></a>Added</h3>
+<ul>
+<li><code>printr</code></li>
+</ul>
+</div>
+<div id="moved-to-imported-packages" class="section level3">
+<h3 class="hasAnchor">
+<a href="#moved-to-imported-packages" class="anchor"></a>Moved to imported packages</h3>
+<ul>
+<li><code>knitr</code></li>
+<li><code>rmarkdown</code></li>
+</ul>
+</div>
+</div>
+</div>
+    <div id="atusydown-010" class="section level1">
+<h1 class="page-header">
+<a href="#atusydown-010" class="anchor"></a>atusydown 0.1.0</h1>
+<p>Born to provide an R package to suggest packages to extend R Markdown, and a Docker image which is ready to use the suggested package by extending on rocker/tidyverse.</p>
+<div id="suggested-packages-1" class="section level2">
+<h2 class="hasAnchor">
+<a href="#suggested-packages-1" class="anchor"></a>Suggested packages</h2>
+<ul>
+<li><code>bookdown</code></li>
+<li><code>blogdown</code></li>
+<li><code>extrafont</code></li>
+<li><code>flexdashboard</code></li>
+<li><code>kableExtra</code></li>
+<li><code>knitr</code></li>
+<li><code>officedown</code></li>
+<li><code>pagedown</code></li>
+<li><code>pkgdown</code></li>
+<li><code>rmarkdown</code></li>
+<li><code>revealjs</code></li>
+<li><code>svglite</code></li>
+<li><code>tinytex</code></li>
+<li><code>webshot</code></li>
+</ul>
+</div>
+</div>
   </div>
+
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2>Contents</h2>
-    <ul class="nav nav-pills nav-stacked">
-                </ul>
-
+    <div id="tocnav">
+      <h2>Contents</h2>
+      <ul class="nav nav-pills nav-stacked">
+        <li><a href="#atusydown-011">0.1.1</a></li>
+        <li><a href="#atusydown-010">0.1.0</a></li>
+      </ul>
+    </div>
   </div>
+
 </div>
 
       <footer>

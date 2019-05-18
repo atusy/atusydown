@@ -14,7 +14,7 @@ NULL
 #' @rdname knit-engines
 eng_text <- function(options) {
   options$results <- 'asis'
-  options$echo <- FALSE
+  options$echo <- isTRUE(options$opts.include)
   out <- options$code
   out[out == ""] <- "\n\n"
   engine_output(
@@ -28,7 +28,7 @@ eng_text <- function(options) {
 #' @importFrom glue glue
 eng_glue <- function(options) {
   options$results <- 'asis'
-  options$echo <- FALSE
+  options$echo <- isTRUE(options$opts.include)
   if (is.null(options$glue.args$.sep)) options$glue.args$.sep <- "\n"
   engine_output(
     options,
@@ -46,7 +46,7 @@ eng_glue <- function(options) {
 #' @rdname knit-engines
 #' @importFrom knitr opts_chunk
 eng_opts <- function(options) {
-  options$echo <- FALSE
+  options$echo <- isTRUE(options$opts.include)
   out <- options
   if (isTRUE(options$opts.show == "diff")) {
     default <- opts_chunk$get()[names(options)]
@@ -65,8 +65,10 @@ eng_opts <- function(options) {
   )
 }
 
+#' Returns chunk options of a source chunk
+#' @param options Chunk options
 opts_src <- function(options) {
-  options[
+  opts <- options[
     names(eval(parse(
       text = paste("alist(", options$params.src, ")", collapse = "")
     )))

@@ -1,5 +1,5 @@
 ---
-title: "knit-engines"
+title: "Knit engines"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{knit-engines}
@@ -15,6 +15,8 @@ knitr::opts_chunk$set(
 code <- function(nm) paste(knitr:::knit_code$get(nm), collapse = "\n")
 library(atusydown)
 ```
+
+Load `atusydown` package primarily to enable features described here.
 
 ```{.r}
 library(atusydown)
@@ -125,4 +127,5 @@ returns chunk options that are set in the source chunk.
 ```{opts, opts.show = "src"}
 
 ```
+
 
