@@ -27,6 +27,7 @@ eng_text <- function(options) {
 #' @rdname knit-engines
 #' @importFrom glue glue
 eng_glue <- function(options) {
+  options$results <- 'asis'
   options$echo <- isTRUE(options$opts.include)
   if (is.null(options$glue.args$.sep)) options$glue.args$.sep <- "\n"
   engine_output(
