@@ -74,3 +74,12 @@ opts_src <- function(options) {
     )))
   ]
 }
+
+#' Returns footnote whose label is same as the chunk label
+eng_fn <- function(options) {
+  options$code <- c(
+    paste0("\n[^", options$label, "]:"),
+    paste0("    ", options$code)
+  )
+  eng_glue(options)
+}
