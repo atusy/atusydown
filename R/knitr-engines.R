@@ -46,7 +46,6 @@ eng_glue <- function(options) {
 #' @rdname knit-engines
 #' @importFrom knitr opts_chunk
 eng_opts <- function(options) {
-  options$echo <- isTRUE(options$opts.include)
   out <- options
   if (isTRUE(options$opts.show == "diff")) {
     default <- opts_chunk$get()[names(options)]
@@ -58,6 +57,7 @@ eng_opts <- function(options) {
   if (isTRUE(options$opts.sort) | is.null(options$opts.sort)) {
     out[sort(names(out))]
   }
+  options$echo <- isTRUE(options$opts.include)
   engine_output(
     options,
     options$code,
