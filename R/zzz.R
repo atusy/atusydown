@@ -4,6 +4,7 @@
     fn = eng_fn,
     footenote = eng_fn,
     glue = eng_glue,
+    note = eng_note,
     opts = eng_opts,
     text = eng_text
   )
