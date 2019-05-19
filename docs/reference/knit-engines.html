@@ -127,19 +127,57 @@
 
 <span class='fu'>eng_glue</span>(<span class='no'>options</span>)
 
-<span class='fu'>eng_opts</span>(<span class='no'>options</span>)</pre>
-        
-    <h2 class="hasAnchor" id=""><a class="anchor" href="#"></a></h2>
+<span class='fu'>eng_opts</span>(<span class='no'>options</span>)
 
-    <p>NA</p>
+<span class='fu'>eng_fn</span>(<span class='no'>options</span>)
+
+<span class='fu'>eng_note</span>(<span class='no'>options</span>)</pre>
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>options</th>
+      <td><p>A list of chunk options. Usually this is just the object
+<code>options</code> passed to the engine function; see
+<code>knit_engines</code>.</p></td>
+    </tr>
+    </table>
+    
+    <h2 class="hasAnchor" id="glue-engine"><a class="anchor" href="#glue-engine"></a>glue engine</h2>
+
+    
+    <p>Generates text powered by `glue::glue()`.</p>
+    
+    <h2 class="hasAnchor" id="opts-engine"><a class="anchor" href="#opts-engine"></a>opts engine</h2>
+
+    
+    <p>Returns options of a current chunk.</p>
+    
+    <h2 class="hasAnchor" id="footnote-engine"><a class="anchor" href="#footnote-engine"></a>footnote engine</h2>
+
+    <p>Returns footnote whose label is same as the chunk label</p>
+    
+    <h2 class="hasAnchor" id="note-engine"><a class="anchor" href="#note-engine"></a>note engine</h2>
+
+    
+    <p>For note. Generally returns nothing.
+  If output is revealjs, then note is put to aside.</p>
     
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
+      <li><a href="#arguments">Arguments</a></li>
       
-      <li><a href="#"></a></li>
+      <li><a href="#glue-engine">glue engine</a></li>
+
+      <li><a href="#opts-engine">opts engine</a></li>
+
+      <li><a href="#footnote-engine">footnote engine</a></li>
+
+      <li><a href="#note-engine">note engine</a></li>
           </ul>
 
   </div>

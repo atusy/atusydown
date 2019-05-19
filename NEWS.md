@@ -3,7 +3,10 @@
 ## New features
 
 - Knit engines
-    - `footnote` and `fn` generate footnotes whose labels are same as the chunk labels.
+    - `footnote` and `fn` engines generate footnotes whose labels are same as the chunk labels.
+    - `note` engine generates nothing because it is for internal notes.
+      Exceptionally, it generates speaker notes for reveal.js slides.
+- `is_output` function to check the output format.
 
 ## Fix
 

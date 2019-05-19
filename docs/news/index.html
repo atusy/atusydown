@@ -123,9 +123,13 @@
 <li>Knit engines
 <ul>
 <li>
-<code>footnote</code> and <code>fn</code> generate footnotes whose labels are same as the chunk labels.</li>
+<code>footnote</code> and <code>fn</code> engines generate footnotes whose labels are same as the chunk labels.</li>
+<li>
+<code>note</code> engine generates nothing because it is for internal notes. Exceptionally, it generates speaker notes for reveal.js slides.</li>
 </ul>
 </li>
+<li>
+<code>is_output</code> function to check the output format.</li>
 </ul>
 </div>
 <div id="fix" class="section level2">
@@ -133,7 +137,7 @@
 <a href="#fix" class="anchor"></a>Fix</h2>
 <ul>
 <li>
-<code><a href="../reference/knit-engines.html">eng_glue()</a></code> coerces results “asis”</li>
+<code><a href="../reference/knit-engines.html">eng_glue()</a></code> coerces results “asis”.</li>
 <li>
 <code>eng_opts</code> internally modifies options after copying specified options.</li>
 </ul>

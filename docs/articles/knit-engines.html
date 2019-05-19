@@ -86,9 +86,9 @@
 
     
     
-<p>This article introduces additional knit engines.</p>
-<p>Load <code>atusydown</code> package primarily to enable features described here.</p>
+<p>This article introduces additional knit engines. Load <code>atusydown</code> package primarily to enable features described here.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(atusydown)</a></code></pre></div>
+<p>To learn more about language engines, refer to “<a href="https://bookdown.org/yihui/rmarkdown/language-engines.html">Other language engines</a>” section of the “R Markdown: The Definitive Guide”.</p>
 <div id="glue" class="section level2">
 <h2 class="hasAnchor">
 <a href="#glue" class="anchor"></a><code>glue</code>
@@ -100,7 +100,7 @@
 <p>For example, let’s substitute <code>{name}</code> by “Atusy”.</p>
 <p>First use <code>r</code> engine like below.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1">name &lt;-<span class="st"> "Atusy"</span></a></code></pre></div>
-<p>And then use <code>glue</code> engine like below. Note that source chunk never echoes.</p>
+<p>And then use <code>glue</code> engine like below. Note that echoes are suppressed.</p>
 <pre class="text"><code>```{glue}
 &gt; **My name is {name}.**
 This output is powered by glue package!
@@ -122,10 +122,28 @@ This output is powered by glue package!
 <h2 class="hasAnchor">
 <a href="#footnote-and-fn" class="anchor"></a><code>footnote</code> and <code>fn</code>
 </h2>
-<p>A <code>footnote</code> engine and its alias <code>fn</code> generates footnote whose label is inherited from chunk label<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>. The <code>footnote</code> engine is powered by <code><a href="https://www.rdocumentation.org/packages/glue/topics/glue">glue::glue()</a></code>, so that options are same as those of the <a href="#glue">glue</a> engine.</p>
+<p>A <code>footnote</code> engine and its alias <code>fn</code> generates footnote whose label is inherited from chunk label<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>. The <code>footnote</code> engine is powered by <code><a href="https://www.rdocumentation.org/packages/glue/topics/glue">glue::glue()</a></code>, so that options are same as those of the <a href="#glue">glue</a> engine. Note that echoes are suppressed.</p>
 <pre class="text"><code>```{fn fn-footnote}
 knitr:::knit_code$get("fn-note")
 ```</code></pre>
+</div>
+<div id="note" class="section level2">
+<h2 class="hasAnchor">
+<a href="#note" class="anchor"></a><code>note</code>
+</h2>
+<p>The <code>note</code> engine is for writing personal notes. Notes are excluded from output documents except for reveal.js slides by <code><a href="https://www.rdocumentation.org/packages/revealjs/topics/revealjs_presentation">revealjs::revealjs_presentation()</a></code>. Note that echoes are suppressed.</p>
+<p>When knitting reveal.js slides, notes are wrapped by <code>aside</code> tags with a <code>note</code> class like below.</p>
+<pre><code>```{note}
+Here's some note.
+```</code></pre>
+<div class="sourceCode" id="cb7"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb7-1" title="1"><span class="kw">&lt;aside</span><span class="ot"> class</span> <span class="ot">=</span> <span class="st">"note"</span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/Comparison">&gt;</a></span>Here's some note.<span class="kw">&lt;/aside&gt;</span></a></code></pre></div>
+<p>Enable <code>notes</code> plugin for example by a following YAML front matter to use speaker notes. For more documentations about plguins refer <a href="https://github.com/rstudio/revealjs#reveal-plugins">README of <code>rstudio/revealjs</code></a>.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb8-1" title="1"><span class="ot">---</span></a>
+<a class="sourceLine" id="cb8-2" title="2"><span class="fu">output:</span></a>
+<a class="sourceLine" id="cb8-3" title="3">  revealjs:<span class="fu">:revealjs_presentation:</span></a>
+<a class="sourceLine" id="cb8-4" title="4">    <span class="fu">self_contained:</span><span class="at"> </span><span class="ch">false</span></a>
+<a class="sourceLine" id="cb8-5" title="5">    <span class="fu">reveal_plugins:</span><span class="at"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/Extract">[</a></span><span class="st">"notes"</span><span class="kw">]</span></a>
+<a class="sourceLine" id="cb8-6" title="6"><span class="ot">---</span></a></code></pre></div>
 </div>
 <div id="opts" class="section level2">
 <h2 class="hasAnchor">
@@ -134,7 +152,7 @@ knitr:::knit_code$get("fn-note")
 <p>The <code>opts</code> engine returns chunk options of a current chunk.</p>
 <p>By default, all the available options are returned. The output of <code>opts</code> can be limited by specifying either <code>"diff"</code> or <code>"src"</code> to a chunk option called <code>opts.show</code>.</p>
 <p>The output of <code>opts</code> is by default sorted by names. The sorting can be disabled by specifying <code>opts.sort = FALSE</code>.</p>
-<p>Note that source chunk never echoes.</p>
+<p>Note that echoes are suppressed.</p>
 <div id="show-all-the-chunk-options-default" class="section level3">
 <h3 class="hasAnchor">
 <a href="#show-all-the-chunk-options-default" class="anchor"></a>Show all the chunk options (default)</h3>
@@ -250,6 +268,7 @@ The content of chunk is ignored.
       <ul class="nav nav-pills nav-stacked">
 <li><a href="#glue"><code>glue</code></a></li>
       <li><a href="#footnote-and-fn"><code>footnote</code> and <code>fn</code></a></li>
+      <li><a href="#note"><code>note</code></a></li>
       <li><a href="#opts"><code>opts</code></a></li>
       </ul>
 </div>

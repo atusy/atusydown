@@ -24,10 +24,12 @@ The `atusydown` as an R package provides additional functions and
 - `bookdown`
 - `blogdown`
 - `extrafont`
+- `gt`
 - `flexdashboard`
 - `kableExtra`
 - `officedown`
 - `pagedown`
+- `printr`
 - `pkgdown`
 - `revealjs`
 - `svglite`

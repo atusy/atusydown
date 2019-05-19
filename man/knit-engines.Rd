@@ -5,6 +5,8 @@
 \alias{eng_text}
 \alias{eng_glue}
 \alias{eng_opts}
+\alias{eng_fn}
+\alias{eng_note}
 \title{Knit engines}
 \usage{
 eng_text(options)
@@ -12,11 +14,36 @@ eng_text(options)
 eng_glue(options)
 
 eng_opts(options)
+
+eng_fn(options)
+
+eng_note(options)
+}
+\arguments{
+\item{options}{A list of chunk options. Usually this is just the object
+\code{options} passed to the engine function; see
+\code{\link{knit_engines}}.}
 }
 \description{
 Additional engines for Rmd chunks
 }
-\section{}{
-NA
+\section{glue engine}{
+
+  Generates text powered by `glue::glue()`.
+}
+
+\section{opts engine}{
+
+  Returns options of a current chunk.
+}
+
+\section{footnote engine}{
+ Returns footnote whose label is same as the chunk label
+}
+
+\section{note engine}{
+
+  For note. Generally returns nothing.
+  If output is revealjs, then note is put to aside.
 }
 

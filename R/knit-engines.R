@@ -2,7 +2,7 @@
 #'
 #' Additional engines for Rmd chunks
 #'
-#' @section
+#' @inheritParams knitr::engine_output
 #'
 #' @name knit-engines
 #'
@@ -26,6 +26,8 @@ eng_text <- function(options) {
 
 #' @rdname knit-engines
 #' @importFrom glue glue
+#' @section glue engine:
+#'   Generates text powered by `glue::glue()`.
 eng_glue <- function(options) {
   options$results <- 'asis'
   options$echo <- isTRUE(options$opts.include)
@@ -45,6 +47,8 @@ eng_glue <- function(options) {
 
 #' @rdname knit-engines
 #' @importFrom knitr opts_chunk
+#' @section opts engine:
+#'   Returns options of a current chunk.
 eng_opts <- function(options) {
   out <- options
   if (isTRUE(options$opts.show == "diff")) {
@@ -65,8 +69,8 @@ eng_opts <- function(options) {
   )
 }
 
-#' Returns chunk options of a source chunk
-#' @param options Chunk options
+#' A helper function to parse parameters of source chunk
+#' @noRd
 opts_src <- function(options) {
   options[
     names(eval(parse(
@@ -75,11 +79,25 @@ opts_src <- function(options) {
   ]
 }
 
-#' Returns footnote whose label is same as the chunk label
+#' @rdname knit-engines
+#' @section footnote engine: Returns footnote whose label is same as the chunk label
 eng_fn <- function(options) {
   options$code <- c(
     paste0("\n[^", options$label, "]:"),
     paste0("    ", options$code)
   )
+  eng_glue(options)
+}
+
+#' @rdname knit-engines
+#' @section note engine:
+#'   For note. Generally returns nothing.
+#'   If output is revealjs, then note is put to aside.
+eng_note <- function(options) {
+  options$code <- if (is_output("revealjs")) {
+    c('<aside class="notes">', options$code, '</aside>')
+  } else {
+    NULL
+  }
   eng_glue(options)
 }
