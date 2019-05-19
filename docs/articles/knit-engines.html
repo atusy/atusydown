@@ -122,21 +122,22 @@ This output is powered by glue package!
 <h2 class="hasAnchor">
 <a href="#footnote-and-fn" class="anchor"></a><code>footnote</code> and <code>fn</code>
 </h2>
-<p>A <code>footnote</code> engine and its alias <code>fn</code> generates footnote whose label is inherited from chunk label<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>. The <code>footnote</code> engine is powered by <code><a href="https://www.rdocumentation.org/packages/glue/topics/glue">glue::glue()</a></code>, so that options are same as those of the [glue] engine.</p>
+<p>A <code>footnote</code> engine and its alias <code>fn</code> generates footnote whose label is inherited from chunk label<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>. The <code>footnote</code> engine is powered by <code><a href="https://www.rdocumentation.org/packages/glue/topics/glue">glue::glue()</a></code>, so that options are same as those of the <a href="#glue">glue</a> engine.</p>
 <pre class="text"><code>```{fn fn-footnote}
 knitr:::knit_code$get("fn-note")
 ```</code></pre>
-<div id="opts" class="section level3">
-<h3 class="hasAnchor">
+</div>
+<div id="opts" class="section level2">
+<h2 class="hasAnchor">
 <a href="#opts" class="anchor"></a><code>opts</code>
-</h3>
+</h2>
 <p>The <code>opts</code> engine returns chunk options of a current chunk.</p>
 <p>By default, all the available options are returned. The output of <code>opts</code> can be limited by specifying either <code>"diff"</code> or <code>"src"</code> to a chunk option called <code>opts.show</code>.</p>
 <p>The output of <code>opts</code> is by default sorted by names. The sorting can be disabled by specifying <code>opts.sort = FALSE</code>.</p>
 <p>Note that source chunk never echoes.</p>
-<div id="show-all-the-chunk-options-default" class="section level4">
-<h4 class="hasAnchor">
-<a href="#show-all-the-chunk-options-default" class="anchor"></a>Show all the chunk options (default)</h4>
+<div id="show-all-the-chunk-options-default" class="section level3">
+<h3 class="hasAnchor">
+<a href="#show-all-the-chunk-options-default" class="anchor"></a>Show all the chunk options (default)</h3>
 <pre class="text"><code>```{opts}
 The content of chunk is ignored.
 ```</code></pre>
@@ -200,10 +201,10 @@ The content of chunk is ignored.
 #&gt;  $ tidy.opts    : NULL
 #&gt;  $ warning      : logi TRUE</code></pre>
 </div>
-<div id="show-options-different-from-opts_chunkget-by-opts-show-diff" class="section level4">
-<h4 class="hasAnchor">
+<div id="show-options-different-from-opts_chunkget-by-opts-show-diff" class="section level3">
+<h3 class="hasAnchor">
 <a href="#show-options-different-from-opts_chunkget-by-opts-show-diff" class="anchor"></a>Show options different from <code>opts_chunk$get()</code> by <code>opts.show = "diff"</code>
-</h4>
+</h3>
 <p>Specifying <code>ops.show = "diff"</code> as a chunk option returns chunk options of the source chunk which have different values from <code>knitr::opts_chunk$get()</code>.</p>
 <pre class="text"><code>```{opts opts-diff, foo = "bar", opts.show = "diff"}
 
@@ -221,10 +222,10 @@ The content of chunk is ignored.
 #&gt;  $ out.width.px : num 700
 #&gt;  $ params.src   : chr "opts-diff, foo = \"bar\", opts.show = \"diff\", engine=\"opts\""</code></pre>
 </div>
-<div id="show-input-options-in-the-chunk-by-opts-show-src" class="section level4">
-<h4 class="hasAnchor">
+<div id="show-input-options-in-the-chunk-by-opts-show-src" class="section level3">
+<h3 class="hasAnchor">
 <a href="#show-input-options-in-the-chunk-by-opts-show-src" class="anchor"></a>Show input options in the chunk by <code>opts.show = "src"</code>
-</h4>
+</h3>
 <p>Specifying <code>opts.show = "src"</code> as a chunk option returns chunk options that are set in the source chunk.</p>
 <pre><code>```{opts opts-src, opts.show = "src"}
 
@@ -232,7 +233,6 @@ The content of chunk is ignored.
 <pre><code>#&gt; List of 2
 #&gt;  $ engine   : chr "opts"
 #&gt;  $ opts.show: chr "src"</code></pre>
-</div>
 </div>
 </div>
 <div class="footnotes">
@@ -250,6 +250,7 @@ The content of chunk is ignored.
       <ul class="nav nav-pills nav-stacked">
 <li><a href="#glue"><code>glue</code></a></li>
       <li><a href="#footnote-and-fn"><code>footnote</code> and <code>fn</code></a></li>
+      <li><a href="#opts"><code>opts</code></a></li>
       </ul>
 </div>
       </div>
