@@ -13,6 +13,8 @@ RUN ln -sf /usr/share/zoneinfo/${zone} /etc/localtime \
     phantomjs \
     # for gt
     libglu1-mesa-dev \
+    # for rkrug/plantuml
+    graphviz \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/* \
   # Noto fonts

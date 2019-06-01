@@ -24,6 +24,7 @@ Suggests:
     officedown,
     pagedown,
     pkgdown,
+    plantuml,
     printr,
     revealjs,
     rmarkdown,
@@ -32,6 +33,7 @@ Suggests:
     webshot
 Remotes:
     davidgohel/officedown,
+    rkrug/plantuml,
     rstudio/gt,
     rstudio/pagedown
 VignetteBuilder: knitr
