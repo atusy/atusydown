@@ -50,6 +50,8 @@ RUN ln -sf /usr/share/zoneinfo/${zone} /etc/localtime \
     rm pandoc-${pandoc}-1-amd64.deb \
   # R packages: install and configure 
   && r -e "options(Ncpus = max(1L, parallel::detectCores())); remotes::install_github('atusy/atusydown', upgrade = 'always', dependencies = TRUE)" \
+  # Setup plantuml
+  && r -e "plantuml::updatePlantumlJar()" \
   # Setup webshot
   && echo "QT_QPA_PLATFORM=offscreen" >> /usr/local/lib/R/etc/Renviron \
   # Setup extrafont
