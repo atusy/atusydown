@@ -1,7 +1,7 @@
 FROM rocker/verse:latest
 
 ARG zone="Asia/Tokyo"
-ARG pandoc="2.7.2"
+ARG pandoc="2.7.3"
 
 RUN ln -sf /usr/share/zoneinfo/${zone} /etc/localtime \
   # apt
