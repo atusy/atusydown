@@ -23,6 +23,7 @@ The `atusydown` as an R package provides additional functions and
 
 - `bookdown`
 - `blogdown`
+- `cssgrid`
 - `extrafont`
 - `gt`
 - `flexdashboard`
@@ -32,6 +33,7 @@ The `atusydown` as an R package provides additional functions and
 - `printr`
 - `pkgdown`
 - `revealjs`
+- `shiny`
 - `svglite`
 - `tinytex`
 - `webshot`

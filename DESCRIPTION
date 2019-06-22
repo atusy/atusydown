@@ -17,6 +17,7 @@ Imports:
 Suggests:
     bookdown,
     blogdown,
+    cssgrid,
     extrafont,
     flexdashboard,
     gt,
@@ -28,10 +29,12 @@ Suggests:
     printr,
     revealjs,
     rmarkdown,
+    shiny,
     svglite,
     tinytex,
     webshot
 Remotes:
+    atusy/cssgrid,
     davidgohel/officedown,
     rkrug/plantuml,
     rstudio/gt,
