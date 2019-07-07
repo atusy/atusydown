@@ -32,7 +32,8 @@ Suggests:
     shiny,
     svglite,
     tinytex,
-    webshot
+    webshot,
+    xaringan
 Remotes:
     atusy/cssgrid,
     davidgohel/officedown,
