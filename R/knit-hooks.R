@@ -38,7 +38,9 @@ hook_src <- function(default = knit_hooks$get("source")) {
       c(",? *opts\\.include *= *TRUE" = "", "^ +" = ", ")
     )
     paste0(
-      "\n\n````{.text}\n```{",
+      "\n\n````",
+      knitr:::block_attr(options$attr.source, c(options$class.source, "chunk-source")),
+      "\n```{",
       paste0(tolower(options$engine), " "[opts != "" && !grepl("^,", opts)], opts), "}\n",
       paste(x, collapse = "\n"),
       "\n```\n````\n\n"
