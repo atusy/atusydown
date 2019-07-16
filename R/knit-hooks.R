@@ -39,7 +39,7 @@ hook_src <- function(default = knit_hooks$get("source")) {
     )
     paste0(
       "\n\n````{.text}\n```{",
-      paste0(tolower(options$engine)," "[!grepl("^,", opts)], opts), "}\n",
+      paste0(tolower(options$engine), " "[opts != "" && !grepl("^,", opts)], opts), "}\n",
       paste(x, collapse = "\n"),
       "\n```\n````\n\n"
     )
