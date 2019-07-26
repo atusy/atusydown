@@ -33,11 +33,13 @@ Suggests:
     svglite,
     tinytex,
     webshot,
-    xaringan
+    xaringan,
+    ymlthis
 Remotes:
     atusy/cssgrid,
     davidgohel/officedown,
     rkrug/plantuml,
     rstudio/gt,
-    rstudio/pagedown
+    rstudio/pagedown,
+    r-lib/ymlthis
 VignetteBuilder: knitr
