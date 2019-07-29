@@ -18,6 +18,7 @@ Suggests:
     bookdown,
     blogdown,
     cssgrid,
+    DT,
     extrafont,
     flexdashboard,
     flextable,
