@@ -29,6 +29,7 @@ Suggests:
     pkgdown,
     plantuml,
     printr,
+    reactable,
     revealjs,
     rmarkdown,
     shiny,
@@ -42,6 +43,7 @@ Suggests:
 Remotes:
     atusy/cssgrid,
     davidgohel/officedown,
+    glin/reactable,
     rkrug/plantuml,
     rstudio/gt,
     rstudio/pagedown,
