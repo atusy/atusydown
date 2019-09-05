@@ -1,7 +1,7 @@
 FROM rocker/verse:latest
 
 ARG zone="Asia/Tokyo"
-ARG pandoc="2.7.3"
+ARG pandoc="2.2.1"
 
 RUN ln -sf /usr/share/zoneinfo/${zone} /etc/localtime \
   # apt
@@ -48,7 +48,7 @@ RUN ln -sf /usr/share/zoneinfo/${zone} /etc/localtime \
     https://github.com/jgm/pandoc/releases/download/${pandoc}/pandoc-${pandoc}-1-amd64.deb && \
     dpkg -i pandoc-${pandoc}-1-amd64.deb && \
     rm pandoc-${pandoc}-1-amd64.deb \
-  # R packages: install and configure 
+  # R packages: install and configure
   && r -e "options(Ncpus = max(1L, parallel::detectCores())); remotes::install_github('atusy/atusydown', upgrade = 'always', dependencies = TRUE)" \
   # Setup plantuml
   && r -e "plantuml::updatePlantumlJar()" \
