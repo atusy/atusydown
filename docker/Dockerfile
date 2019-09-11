@@ -10,7 +10,7 @@ RUN ln -sf /usr/share/zoneinfo/${zone} /etc/localtime \
     # IPA fonts
     fonts-ipaexfont-gothic fonts-ipaexfont-mincho \
     # for webshot
-    phantomjs \
+    bzip2 \
     # for gt
     libglu1-mesa-dev \
     # for rkrug/plantuml
@@ -53,7 +53,7 @@ RUN ln -sf /usr/share/zoneinfo/${zone} /etc/localtime \
   # Setup plantuml
   && r -e "plantuml::updatePlantumlJar()" \
   # Setup webshot
-  && echo "QT_QPA_PLATFORM=offscreen" >> /usr/local/lib/R/etc/Renviron \
+  && r -e "webshot::install_phantomjs()" \
   # Setup extrafont
   && r -e "extrafont::font_import(prompt = FALSE)" \
   # Setup blogdown (hugo) \
