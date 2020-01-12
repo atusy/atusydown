@@ -10,7 +10,7 @@ RUN ln -sf /usr/share/zoneinfo/${zone} /etc/localtime \
     # IPA fonts
     fonts-ipaexfont-gothic fonts-ipaexfont-mincho \
     # for webshot
-    bzip2 \
+    bzip2 phantomjs\
     # for gt
     libglu1-mesa-dev \
     # for rkrug/plantuml
@@ -45,15 +45,13 @@ RUN ln -sf /usr/share/zoneinfo/${zone} /etc/localtime \
       /usr/local/bin/pandoc \
       /usr/local/bin/pandoc-citeproc \
   && wget \
-    https://github.com/jgm/pandoc/releases/download/${pandoc}/pandoc-${pandoc}-1-amd64.deb && \
-    dpkg -i pandoc-${pandoc}-1-amd64.deb && \
-    rm pandoc-${pandoc}-1-amd64.deb \
+    https://github.com/jgm/pandoc/releases/download/${pandoc}/pandoc-${pandoc}-1-amd64.deb \
+  && dpkg -i pandoc-${pandoc}-1-amd64.deb \
+  && rm pandoc-${pandoc}-1-amd64.deb \
   # R packages: install and configure 
   && r -e "options(Ncpus = max(1L, parallel::detectCores())); remotes::install_github('atusy/atusydown', upgrade = 'always', dependencies = TRUE)" \
   # Setup plantuml
   && r -e "plantuml::updatePlantumlJar()" \
-  # Setup webshot
-  && r -e "webshot::install_phantomjs()" \
   # Setup extrafont
   && r -e "extrafont::font_import(prompt = FALSE)" \
   # Setup blogdown (hugo) \
@@ -72,4 +70,7 @@ RUN ln -sf /usr/share/zoneinfo/${zone} /etc/localtime \
   && chown -R root:staff /usr/local/lib/R/site-library \
   && chown -R root:staff /opt/TinyTeX \
   && chmod -R g+w /opt/TinyTeX \
-  && chmod -R g+wx /opt/TinyTeX/bin
+  && chmod -R g+wx /opt/TinyTeX/bin \
+  # Renviron
+  && echo "QT_QPA_PLATFORM=offscreen" >> /usr/local/lib/R/etc/Renviron.site
+  
