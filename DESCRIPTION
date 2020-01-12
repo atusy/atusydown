@@ -17,6 +17,7 @@ Imports:
 Suggests:
     bookdown,
     blogdown,
+    chromote,
     cssgrid,
     DT,
     extrafont,
@@ -37,6 +38,7 @@ Suggests:
     tinytex,
     tippy,
     webshot,
+    webshot2,
     xaringan,
     xtable,
     ymlthis
@@ -45,7 +47,9 @@ Remotes:
     davidgohel/officedown,
     glin/reactable,
     rkrug/plantuml,
+    rstudio/chromote,
     rstudio/gt,
     rstudio/pagedown,
+    rstudio/webshot2,
     r-lib/ymlthis
 VignetteBuilder: knitr
