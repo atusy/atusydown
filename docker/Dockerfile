@@ -75,7 +75,7 @@ RUN ln -sf /usr/share/zoneinfo/${zone} /etc/localtime \
   && echo '#! /bin/sh' >> chromium.sh \
   && echo 'exec /usr/bin/chromium --no-sandbox --headless "$@"' >> \
       chromium.sh \
-  && chown root:staff /home/rstudio/bin/chromium.sh \
+  && chown root:staff chromium.sh \
   && chmod g+x chromium.sh \
   && mkdir --parent '/home/rstudio/bin' \
   && mv chromium.sh /home/rstudio/bin/chromium.sh \
