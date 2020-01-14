@@ -9,6 +9,8 @@ RUN ln -sf /usr/share/zoneinfo/${zone} /etc/localtime \
   && apt-get install -y --no-install-recommends \
     # IPA fonts
     fonts-ipaexfont-gothic fonts-ipaexfont-mincho \
+    # for chromote and webshot2
+    chromium \
     # for webshot
     bzip2 phantomjs\
     # for gt
@@ -71,15 +73,7 @@ RUN ln -sf /usr/share/zoneinfo/${zone} /etc/localtime \
   && chown -R root:staff /opt/TinyTeX \
   && chmod -R g+w /opt/TinyTeX \
   && chmod -R g+wx /opt/TinyTeX/bin \
-  # Setup Chromote
-  && echo '#! /bin/sh' >> chromium.sh \
-  && echo 'exec /usr/bin/chromium --no-sandbox --headless "$@"' >> \
-      chromium.sh \
-  && chown root:staff chromium.sh \
-  && chmod g+x chromium.sh \
-  && mkdir --parent '/home/rstudio/bin' \
-  && mv chromium.sh /home/rstudio/bin/chromium.sh \
-  && echo "CHROMOTE_CHROME=/home/rstudio/bin/chromium.sh" >> \
-      /usr/local/lib/R/etc/Renviron.site \
+  # Setup chromote
+  && echo "CHROMOTE_CHROME=/usr/bin/chromium" >> /usr/local/lib/R/etc/Renviron.site \
   # Setup webshot
   && echo "QT_QPA_PLATFORM=offscreen" >> /usr/local/lib/R/etc/Renviron.site
