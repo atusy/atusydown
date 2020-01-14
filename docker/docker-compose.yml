@@ -13,4 +13,6 @@ services:
       - USER=rstudio
       - PASSWORD=password
       - VIRTUAL_HOST=atusydown.localhost
+    security_opt:
+      - seccomp:chrome.json
     network_mode: "bridge"
