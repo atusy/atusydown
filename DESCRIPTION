@@ -48,11 +48,8 @@ Suggests:
 Remotes:
     atusy/cssgrid,
     davidgohel/officedown,
-    glin/reactable,
     rkrug/plantuml,
     rstudio/chromote,
-    rstudio/gt,
     rstudio/pagedown,
-    rstudio/webshot2,
-    r-lib/ymlthis
+    rstudio/webshot2
 VignetteBuilder: knitr
