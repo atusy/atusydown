@@ -10,7 +10,7 @@ RUN ln -sf /usr/share/zoneinfo/${zone} /etc/localtime \
     # IPA fonts
     fonts-ipaexfont-gothic fonts-ipaexfont-mincho \
     # for chromote and webshot2
-    chromium \
+    chromium-browser \
     # for webshot
     bzip2 phantomjs\
     # for gt
