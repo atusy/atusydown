@@ -69,10 +69,10 @@ RUN ln -sf /usr/share/zoneinfo/${zone} /etc/localtime \
     # for Pandoc
     biblatex bidi csquotes footnotehyper makecmds microtype polyglossia setspace unicode-math xurl \
   && tlmgr path add \
-  && chown -R root:staff /usr/local/lib/R/site-library \
-  && chown -R root:staff /opt/TinyTeX \
-  && chmod -R g+w /opt/TinyTeX \
-  && chmod -R g+wx /opt/TinyTeX/bin \
+  && chown -R rstudio:staff /opt/texlive \
+  && chown -R rstudio:staff /usr/local/texlive
+  && chmod -R 777 /opt/texlive
+  && chmod -R 777 /usr/local/texlive
   # Setup chromote
   && echo "CHROMOTE_CHROME=/usr/bin/chromium" >> /usr/local/lib/R/etc/Renviron.site \
   # Setup webshot
