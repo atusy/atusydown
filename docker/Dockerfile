@@ -70,9 +70,9 @@ RUN ln -sf /usr/share/zoneinfo/${zone} /etc/localtime \
     biblatex bidi csquotes footnotehyper makecmds microtype polyglossia setspace unicode-math xurl \
   && tlmgr path add \
   && chown -R rstudio:staff /opt/texlive \
-  && chown -R rstudio:staff /usr/local/texlive
-  && chmod -R 777 /opt/texlive
-  && chmod -R 777 /usr/local/texlive
+  && chown -R rstudio:staff /usr/local/texlive \
+  && chmod -R 777 /opt/texlive \
+  && chmod -R 777 /usr/local/texlive \
   # Setup chromote
   && echo "CHROMOTE_CHROME=/usr/bin/chromium" >> /usr/local/lib/R/etc/Renviron.site \
   # Setup webshot
