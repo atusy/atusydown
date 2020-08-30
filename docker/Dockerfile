@@ -5,12 +5,13 @@ ARG pandoc="2.7.3"
 
 RUN ln -sf /usr/share/zoneinfo/${zone} /etc/localtime \
   # apt
+  && wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb \
   && apt-get update \
   && apt-get install -y --no-install-recommends \
     # IPA fonts
     fonts-ipaexfont-gothic fonts-ipaexfont-mincho \
     # for chromote and webshot2
-    chromium-browser \
+    ./google-chrome-stable_current_amd64.deb \
     # for webshot
     bzip2 phantomjs\
     # for gt
@@ -18,7 +19,7 @@ RUN ln -sf /usr/share/zoneinfo/${zone} /etc/localtime \
     # for rkrug/plantuml
     graphviz \
   && apt-get clean \
-  && rm -rf /var/lib/apt/lists/* \
+  && rm -rf /var/lib/apt/lists/* ./google-chrome-stable_current_amd64.deb  && apt-get update \
   # Noto fonts
   && wget -q \
     https://noto-website-2.storage.googleapis.com/pkgs/NotoSans-hinted.zip \
@@ -74,6 +75,6 @@ RUN ln -sf /usr/share/zoneinfo/${zone} /etc/localtime \
   && chmod -R 777 /opt/texlive \
   && chmod -R 777 /usr/local/texlive \
   # Setup chromote
-  && echo "CHROMOTE_CHROME=/usr/bin/chromium" >> /usr/local/lib/R/etc/Renviron.site \
+  && echo "CHROMOTE_CHROME=/usr/bin/google-chrome" >> /usr/local/lib/R/etc/Renviron.site \
   # Setup webshot
   && echo "QT_QPA_PLATFORM=offscreen" >> /usr/local/lib/R/etc/Renviron.site
