@@ -48,6 +48,5 @@ Remotes:
     atusy/cssgrid,
     davidgohel/officedown,
     rstudio/chromote,
-    rstudio/pagedown,
-    rstudio/webshot2
+    rstudio/webshot2,
 VignetteBuilder: knitr
