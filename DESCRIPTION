@@ -31,7 +31,6 @@ Suggests:
     officedown,
     pagedown,
     pkgdown,
-    plantuml,
     printr,
     reactable,
     revealjs,
@@ -48,7 +47,6 @@ Suggests:
 Remotes:
     atusy/cssgrid,
     davidgohel/officedown,
-    rkrug/plantuml,
     rstudio/chromote,
     rstudio/pagedown,
     rstudio/webshot2
