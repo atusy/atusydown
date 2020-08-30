@@ -54,7 +54,7 @@ RUN ln -sf /usr/share/zoneinfo/${zone} /etc/localtime \
   # R packages: install and configure 
   && r -e "options(Ncpus = max(1L, parallel::detectCores())); remotes::install_github('atusy/atusydown', upgrade = 'always', dependencies = TRUE)" \
   # Setup plantuml
-  && r -e "plantuml::updatePlantumlJar()" \
+  #&& r -e "plantuml::updatePlantumlJar()" \
   # Setup extrafont
   && r -e "extrafont::font_import(prompt = FALSE)" \
   # Setup blogdown (hugo) \
